@@ -1,0 +1,38 @@
+{
+  "name": "gulp-gitmodified",
+  "version": "1.0.0",
+  "description": "Only pass through modified files reported by git",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maverickpuss/gulp-gitmodified.git"
+  },
+  "author": {
+    "name": "Dylan Mao",
+    "email": "maverickpuss@gmail.com"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "file",
+    "files",
+    "changed",
+    "git",
+    "newer",
+    "modified",
+    "modification",
+    "updated",
+    "time",
+    "mtime",
+    "stat",
+    "cache",
+    "cached",
+    "passthrough"
+  ],
+  "devDependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^2.0.0"
+  }
+}
