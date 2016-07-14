@@ -3,7 +3,12 @@ var through = require('through2'),
     execProc = require('child_process').exec;
 
 // plugin level function (dealing with files)
-function gitModified() {
+function gitModified(options) {
+  var options = options || {};
+  
+  // status that needs to be considered as changed.
+  options.status = options.status || ['M', 'A'];
+
   // creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
     var _this = this;
@@ -28,7 +33,7 @@ function gitModified() {
           // A app/js/abc.js
           //  M app/gulpfile.js
           // `M` means the file has been modified
-          if (stdout.trim().split(" ")[0] === "M") {
+          if (options.status.indexOf(stdout.trim().split(" ")[0]) > -1) {
             _this.push(file);
           }
         }
