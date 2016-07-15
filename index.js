@@ -7,7 +7,11 @@ function gitModified(options) {
   var options = options || {};
   
   // status that needs to be considered as changed.
-  options.status = options.status || ['M', 'A'];
+  // M: modified
+  // M: added
+  // AM: added(stashed) but then modified(unstashed), only happens
+  // to files been added the first time.
+  options.status = options.status || ['M', 'A', 'AM'];
 
   // creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
